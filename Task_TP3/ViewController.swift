@@ -38,10 +38,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //--------------------- Bouton Save - fonction pour sauvegarder les données dans le serveur
     @IBAction func saveButton(_ sender: UIButton) {
         //alerte pour le bouton save
-        let alert = UIAlertController(title: "Save database online", message: "Really want to save database and replace the one online", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Save database online...", message: "Really want to save database and replace the one online?", preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-            self.reallyDosave()
+            self.reallyDoSave()
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (action: UIAlertAction!) in
@@ -74,10 +74,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //            } }
 //        task.resume()
 //      
-        self.jsonManager.importJSON()
-        self.jsonManager.loading(temp: self.addObject)
-        addObject.saveToSingleton()
-        tableView.reloadData()
+        let alert = UIAlertController(title: "Load database online...", message: "Really want to load database and replace this one?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            self.reallyDoLoad()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (action: UIAlertAction!) in
+        }))
+        
+        present(alert, animated: true, completion: nil)
+        
+        
+        
     }
     //--------------------------- Bouton Reset -
     @IBAction func ressetButton(_ sender: UIButton) {
@@ -99,7 +108,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      ******************************************************************************************
      =========================================================================================*/
     //---------------------------
-    func reallyDosave(){
+    func reallyDoSave(){
        
         var urlToSend = "http://localhost/dashboard/Ouldyounes/grasset_p10//add.php?json=["
         var counter = 0
@@ -132,6 +141,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dataTask.resume()
     }
     //---------------------------
+    func reallyDoLoad(){
+        
+    addObject.removeTask()
+    self.jsonManager.importJSON()
+    self.jsonManager.loading(temp: self.addObject)
+    addObject.saveToSingleton()
+    tableView.reloadData()
+        
+    }
+    //---------------------------
     func replaceChars(originalStr: String, what: String, byWhat: String) -> String {
         return originalStr.replacingOccurrences(of: what, with: byWhat)
     }
@@ -143,6 +162,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         refreshAlert.addAction(OKAction)
         present(refreshAlert, animated: true){}
     }
+    
+    
     
        
     
