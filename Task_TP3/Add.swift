@@ -6,6 +6,7 @@ class Add {
     var dictionnary: [String: Bool]!
     var keys: [String] = []
     var values: [Bool] = []
+    var arrayOfValues: [String] = []
     //---------------------------
     init() {
         if let dict = Singleton.singletonInstance.dictionnary {
@@ -40,15 +41,14 @@ class Add {
         Singleton.singletonInstance.dictionnary = dictionnary
         Singleton.singletonInstance.saveData()
     }
-     //---------------------------
-    
+     //--------------------------- Function pour vider le dictionnaire
     func removeTask(){
         dictionnary = [:]
         self.parseDict()
     }
     
-    //--------------------------
-    func countTrue() -> Int{
+    //-------------------------- Fonction compte les valeurs true
+    func countTrueValues() -> Int{
         var n = 0
         for i in values {
             if i == true {
@@ -57,6 +57,21 @@ class Add {
         }
         return n
     }
+     //--------------------------
+    func trueValues() {
+        
+        for (x,y) in dictionnary {
+            if y == true {
+                arrayOfValues.append(x)
+            }
+        }
+    }
+    //---------------------------
+    func removeValueTrue(keyTrue: String){
+        dictionnary[keyTrue] = false
+        saveToSingleton()
+    }
+    //-----------------------------
 }
 //==============================
 

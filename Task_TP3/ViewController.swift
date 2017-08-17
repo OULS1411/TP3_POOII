@@ -27,7 +27,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      ******************************************************************************************
      =========================================================================================*/
     
-    //-------------------- Bouton ADD - Fonction qui ajoute une donnée a la TableView
+    //-------------------- Bouton ADD qui ajoute une donnée à la TableView
     @IBAction func addButton(_ sender: UIButton) {
         addObject.addValue(keyToAdd: addField.text!)
         tableView.reloadData()
@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         alert("Task added successfully")
     }
     
-    //--------------------- Bouton Save - fonction pour sauvegarder les données dans le serveur
+    //--------------------- Bouton Save qui va sauvegarder les données dans le serveur
     @IBAction func saveButton(_ sender: UIButton) {
         //alerte pour le bouton save
         let alert = UIAlertController(title: "Save database online...", message: "Really want to save database and replace the one online?", preferredStyle: UIAlertControllerStyle.alert)
@@ -51,7 +51,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     }
     
-    //--------------------- Bouton Load —— fonction qui va chercher les données sauvegarder sur le serveur et remplacer ce qui se trouve dans le telephone —— ( le bouton save va sauvegarder les données dans le serveur.)
+    //--------------------- Bouton Load qui va chercher les données sauvegarder sur le serveur et remplacer ce qui se trouve dans le téléphone
     
     @IBAction func Load(_ sender: UIButton) {
 //        alert("Tout est bon")
@@ -88,7 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
     }
-    //--------------------------- Bouton Reset -
+    //--------------------------- Bouton Reset - désélectionner les taches déja séléctionner
     @IBAction func ressetButton(_ sender: UIButton) {
         
         for x in 0 ..< addObject.dictionnary.count
@@ -107,7 +107,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      ***********************************      Functions       *********************************
      ******************************************************************************************
      =========================================================================================*/
-    //---------------------------
+    
+    //--------------------------- Function pour sauvegarder les données dans serveur
     func reallyDoSave(){
        
         var urlToSend = "http://localhost/dashboard/Ouldyounes/grasset_p10//add.php?json=["
@@ -140,7 +141,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         dataTask.resume()
     }
-    //---------------------------
+    //--------------------------- Function qui va télécharger les données sauvegarder sur le serveur
     func reallyDoLoad(){
         
     addObject.removeTask()
@@ -172,7 +173,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      ***********************************      TableView       *********************************
      ******************************************************************************************
      =========================================================================================*/
-    
    //---------------------- Fonction qui retourne nombre items du tableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.backgroundColor = UIColor.clear
@@ -187,14 +187,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
-    //--------------------- Fonction qui select items du tableView
+    //--------------------- Fonction qui select l'items de la tableView
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if Array( addObject.dictionnary.values)[indexPath.row] {
-            cell.backgroundColor = UIColor.lightGray//changer la couleur de la selectionne dans la tableView
+            cell.backgroundColor = UIColor (red: 0.319, green: 0.509, blue: 0.375, alpha: 1.0)//changer la couleur de la selectionne dans la tableView
             
         }
     }
-    //--------------------- Fonction qui delete la ligne
+    //--------------------- Fonction qui supprime la rangé
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
             addObject.removeValue(keyToRemove: addObject.keys[indexPath.row])
@@ -213,6 +213,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             addObject.dictionnary[Array( addObject.dictionnary.keys)[indexPath.row]] = false
         }
+        addObject.saveToSingleton()
         tableView.reloadData()
     }
     

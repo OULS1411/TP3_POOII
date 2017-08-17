@@ -35,7 +35,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8is-ha-oQq">
                                 <rect key="frame" x="16" y="168" width="339" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="ADD" backgroundImage="ADD.png">
+                                <state key="normal" title="ADD TASK" backgroundImage="ADD.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
