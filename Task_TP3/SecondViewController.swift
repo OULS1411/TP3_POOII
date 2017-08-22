@@ -11,7 +11,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //---------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        addObject.trueValues()
+        addObject.trueValues() // appel de la fonction "trueValues" dans la classe Add
     }
     //---------------------------
     override func didReceiveMemoryWarning() {

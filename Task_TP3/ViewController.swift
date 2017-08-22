@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     /*=========================================================================================
      ******************************************************************************************
-     ***********************************      BUTTONS       ***********************************
+     ***********************************      BOUTONS       ***********************************
      ******************************************************************************************
      =========================================================================================*/
     //-------------------- Bouton ADD qui ajoute une donnée à la TableView
@@ -66,7 +66,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         present(alert, animated: true, completion: nil)
         
     }
-    //--------------------------- Bouton Reset - désélectionner les taches déja séléctionner
+    //--------------------------- Bouton Reset pour désélectionner les taches déja séléctionner
     @IBAction func ressetButton(_ sender: UIButton) {
         
         for x in 0 ..< addObject.dictionnary.count
@@ -81,11 +81,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     /*=========================================================================================
      ******************************************************************************************
-     ***********************************      Functions       *********************************
+     ***********************************      Fonctions       *********************************
      ******************************************************************************************
      =========================================================================================*/
     
-    //--------------------------- Function pour sauvegarder les données dans le serveur
+    //--------------------------- Fonction pour sauvegarder les données dans le serveur
     func reallyDoSave(){
         var urlToSend = "http://localhost/dashboard/Ouldyounes/grasset_p10//add.php?json=["
         var counter = 0
@@ -117,7 +117,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         dataTask.resume()
     }
-    //--------------------------- Function qui va télécharger les données sauvegarder sur le serveur
+    //--------------------------- Fonction qui va télécharger les données sauvegarder sur le serveur
     func reallyDoLoad(){
     addObject.removeTask()
     self.jsonManager.importJSON()
@@ -157,7 +157,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
-    //--------------------- Fonction qui select l'items de la tableView
+    //--------------------- Fonction qui selectionne l'item de la tableView
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if Array( addObject.dictionnary.values)[indexPath.row] {
             cell.backgroundColor = UIColor (red: 0.40, green: 0.73, blue: 0.68, alpha: 1.0)//changer la couleur de la selectionne dans la tableView

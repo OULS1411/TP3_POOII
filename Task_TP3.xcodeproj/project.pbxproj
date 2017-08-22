@@ -33,7 +33,6 @@
 		9B6CB1B81F21614D00BE8443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B6CB1B71F21614D00BE8443 /* Assets.xcassets */; };
 		9B6CB1BB1F21614D00BE8443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6CB1B91F21614D00BE8443 /* LaunchScreen.storyboard */; };
 		9B6CB1C61F21625300BE8443 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6CB1C21F21625300BE8443 /* Add.swift */; };
-		9B6CB1C71F21625300BE8443 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6CB1C31F21625300BE8443 /* Display.swift */; };
 		9B6CB1C81F21625300BE8443 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6CB1C41F21625300BE8443 /* SecondViewController.swift */; };
 		9B6CB1C91F21625300BE8443 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6CB1C51F21625300BE8443 /* Singleton.swift */; };
 		9B6CB1CB1F21627300BE8443 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6CB1CA1F21627300BE8443 /* Main.storyboard */; };
@@ -69,7 +68,6 @@
 		9B6CB1BA1F21614D00BE8443 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B6CB1BC1F21614D00BE8443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Task_TP3/Info.plist; sourceTree = "<group>"; };
 		9B6CB1C21F21625300BE8443 /* Add.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
-		9B6CB1C31F21625300BE8443 /* Display.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		9B6CB1C41F21625300BE8443 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		9B6CB1C51F21625300BE8443 /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		9B6CB1CA1F21627300BE8443 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 				9B6CB1B01F21614D00BE8443 /* AppDelegate.swift */,
 				9B6CB1C21F21625300BE8443 /* Add.swift */,
 				9B8CFA661F3A5D4A003CF979 /* JsonManager.swift */,
-				9B6CB1C31F21625300BE8443 /* Display.swift */,
 				9B6CB1C41F21625300BE8443 /* SecondViewController.swift */,
 				9B6CB1C51F21625300BE8443 /* Singleton.swift */,
 				9B6CB1B21F21614D00BE8443 /* ViewController.swift */,
@@ -263,7 +260,6 @@
 				9B6CB1C91F21625300BE8443 /* Singleton.swift in Sources */,
 				9B8CFA671F3A5D4A003CF979 /* JsonManager.swift in Sources */,
 				9B6CB1B31F21614D00BE8443 /* ViewController.swift in Sources */,
-				9B6CB1C71F21625300BE8443 /* Display.swift in Sources */,
 				9B6CB1C81F21625300BE8443 /* SecondViewController.swift in Sources */,
 				9B6CB1B11F21614D00BE8443 /* AppDelegate.swift in Sources */,
 			);

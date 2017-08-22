@@ -7,7 +7,6 @@ class Singleton {
     let userDefault = UserDefaults.standard // userDefault garde localement les données 
     //---------------------------
     var dictionnary: [String: Bool]!
-    
     //---------------------------
        init() {
         if userDefault.object(forKey: "data") ==  nil {// Si la boite est vide,"data"c'est le nom de la boite
@@ -16,7 +15,7 @@ class Singleton {
             dictionnary = userDefault.object(forKey: "data") as! [String : Bool]!
         }
     }
-    //---------------------------
+    //--------------------------- Fonction pour sauvegarder les données
     func saveData() {
         userDefault.setValue(dictionnary, forKey: "data")
     }

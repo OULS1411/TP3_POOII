@@ -22,7 +22,7 @@ class JsonManager
     {
         self.jsonParsed = self.parser(self.urlToJsonFile)
     }
-    //----------------------------
+    //---------------------------- Fonction pour extraire les clés et les valeurs et les envoyers dans le dictionnaire
     func loading(temp: Add) {
         temp.keys = []
         temp.values = []
