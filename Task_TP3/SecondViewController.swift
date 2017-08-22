@@ -17,15 +17,13 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    
+
     //MARK:--------------TableView
     //--------------------------- Fonction qui retourne nombre items du tableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.backgroundColor = UIColor.clear
         return addObject.countTrueValues()
     }
-    
     //--------------------- Fonction qui remplie la tableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier:"proto")
@@ -34,11 +32,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.backgroundColor = UIColor.clear
         return cell
     }
-    
     //--------------------- Fonction qui select l'items du tableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
-        selectedCell.contentView.backgroundColor = UIColor.darkGray
+        selectedCell.contentView.backgroundColor = UIColor (red: 0.40, green: 0.73, blue: 0.68, alpha: 1.0)
     }
     
        //--------------------- Fonction qui supprime la rangé de la tableView

@@ -26,13 +26,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      ***********************************      BUTTONS       ***********************************
      ******************************************************************************************
      =========================================================================================*/
-    
     //-------------------- Bouton ADD qui ajoute une donnée à la TableView
     @IBAction func addButton(_ sender: UIButton) {
         addObject.addValue(keyToAdd: addField.text!)
         tableView.reloadData()
         addField.text?.removeAll()
         alert("Task added successfully")
+    
     }
     
     //--------------------- Bouton Save qui va sauvegarder les données dans le serveur
@@ -48,32 +48,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }))
         
         present(alert, animated: true, completion: nil)
-
     }
     
     //--------------------- Bouton Load qui va chercher les données sauvegarder sur le serveur et remplacer ce qui se trouve dans le téléphone
     
     @IBAction func Load(_ sender: UIButton) {
-//        alert("Tout est bon")
-//        let requestURL: NSURL = NSURL(string: "http://localhost/dashboard/Ouldyounes/grasset_p10/data.json")!
-//        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url:requestURL as URL)
-//        let session = URLSession.shared
-//        let task = session.dataTask(with: urlRequest as URLRequest) {
-//            (data, response, error) -> Void in
-//            let httpResponse = response as! HTTPURLResponse
-//            let statusCode = httpResponse.statusCode
-//            if (statusCode == 200) {
-//               print("Tout fonctionne correctement...")
-//                do{
-//                    let json = try JSONSerialization.jsonObject(with:data!, options:.allowFragments)
-//                    print(json)
-//                    
-//                }catch {
-//                    print("Erreur Json: \(error)")
-//                }
-//            } }
-//        task.resume()
-//      
+        
         let alert = UIAlertController(title: "Load database online...", message: "Really want to load database and replace this one?", preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
@@ -84,8 +64,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }))
         
         present(alert, animated: true, completion: nil)
-        
-        
         
     }
     //--------------------------- Bouton Reset - désélectionner les taches déja séléctionner
@@ -101,16 +79,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
     }
     
-    
     /*=========================================================================================
      ******************************************************************************************
      ***********************************      Functions       *********************************
      ******************************************************************************************
      =========================================================================================*/
     
-    //--------------------------- Function pour sauvegarder les données dans serveur
+    //--------------------------- Function pour sauvegarder les données dans le serveur
     func reallyDoSave(){
-       
         var urlToSend = "http://localhost/dashboard/Ouldyounes/grasset_p10//add.php?json=["
         var counter = 0
         let total = self.addObject.dictionnary.count
@@ -143,7 +119,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //--------------------------- Function qui va télécharger les données sauvegarder sur le serveur
     func reallyDoLoad(){
-        
     addObject.removeTask()
     self.jsonManager.importJSON()
     self.jsonManager.loading(temp: self.addObject)
@@ -155,7 +130,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func replaceChars(originalStr: String, what: String, byWhat: String) -> String {
         return originalStr.replacingOccurrences(of: what, with: byWhat)
     }
-    
     //---------------------------
     func alert(_ theMessage: String){
         let refreshAlert = UIAlertController(title: "Message...", message: theMessage, preferredStyle: .alert)
@@ -163,10 +137,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         refreshAlert.addAction(OKAction)
         present(refreshAlert, animated: true){}
     }
-    
-    
-    
-       
     
     /*=========================================================================================
      ******************************************************************************************
@@ -190,8 +160,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //--------------------- Fonction qui select l'items de la tableView
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if Array( addObject.dictionnary.values)[indexPath.row] {
-            cell.backgroundColor = UIColor (red: 0.319, green: 0.509, blue: 0.375, alpha: 1.0)//changer la couleur de la selectionne dans la tableView
-            
+            cell.backgroundColor = UIColor (red: 0.40, green: 0.73, blue: 0.68, alpha: 1.0)//changer la couleur de la selectionne dans la tableView
         }
     }
     //--------------------- Fonction qui supprime la rangé
@@ -201,7 +170,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
         }
     }
-    
     //---------------------
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //changer la couleur de la cellule à la selection
@@ -216,11 +184,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         addObject.saveToSingleton()
         tableView.reloadData()
     }
-    
-    
-    
+}//end class ViewController
 
-
-
-}//end class
-//==============================

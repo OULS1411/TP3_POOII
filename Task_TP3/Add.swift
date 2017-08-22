@@ -47,7 +47,7 @@ class Add {
         self.parseDict()
     }
     
-    //-------------------------- Fonction compte les valeurs true
+    //-------------------------- Fonction qui compte les valeurs true
     func countTrueValues() -> Int{
         var n = 0
         for i in values {
@@ -66,14 +66,14 @@ class Add {
             }
         }
     }
-    //---------------------------
+    //--------------------------- Remettre la valeur du dictionnaire a flase
     func removeValueTrue(keyTrue: String){
         dictionnary[keyTrue] = false
         saveToSingleton()
     }
     //-----------------------------
-}
-//==============================
+}//end class Add
+
 
 
 
