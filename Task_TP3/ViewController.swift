@@ -9,7 +9,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     public var defaults = UserDefaults.standard
     static let singletonInstance = Singleton()
     var jsonParsed:NSMutableDictionary = [:]
-    var jsonManager = JsonManager(urlToJsonFile:"http://localhost/dashboard/Ouldyounes/grasset_p10/data.json")
+    //var jsonManager = JsonManager(urlToJsonFile:"http://localhost/dashboard/Ouldyounes/grasset_p10/data.json")
+    var jsonManager = JsonManager(urlToJsonFile:"http://localhost/dashboard/geneau/poo2/data.json")
     //---------------------------
     let addObject = Add() //  objet de type ADD..
     //---------------------------
@@ -80,7 +81,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      =========================================================================================*/
     //--------------------- Fonction pour sauvegarder les données dans le serveur
     func reallyDoSave() {
-        var urlToSend = "http://localhost/dashboard/Ouldyounes/grasset_p10//add.php?json=["
+        //var urlToSend = "http://localhost/dashboard/Ouldyounes/grasset_p10//add.php?json=["
+        var urlToSend = "http://localhost/dashboard/geneau/poo2//add.php?json=["
         var counter = 0
         let total = self.addObject.dictionnary.count
         for (a, b) in self.addObject.dictionnary {
